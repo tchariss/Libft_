@@ -6,7 +6,7 @@
 /*   By: tchariss <tchariss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 13:22:26 by tchariss          #+#    #+#             */
-/*   Updated: 2020/11/17 12:30:13 by tchariss         ###   ########.fr       */
+/*   Updated: 2020/11/22 17:28:57 by tchariss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,17 @@ void	ft_putnbr_fd(int n, int fd)
 	// 	return ;
 	// 	}
 	if ( o < 0 ) 
+	{	
 		o = o * -1; // делаем n положительным
+		write(fd, "-", 1);
+	}
 	a = o % 10 + '0'; // как 0 по таблице ascii или 48
 	if ( o / 10 )
 		ft_putnbr_fd(o / 10, fd);
 		write (fd, &a, 1);
+}
+
+int main ()
+{
+	ft_putnbr_fd( -12345 , 1);
 }

@@ -6,7 +6,7 @@
 /*   By: tchariss <tchariss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 20:02:36 by tchariss          #+#    #+#             */
-/*   Updated: 2020/11/17 13:21:04 by tchariss         ###   ########.fr       */
+/*   Updated: 2020/11/22 17:29:42 by tchariss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ count - количество элементов
 size - длина каждого элемента в байтах
 */
 {
-	int *p;
-	size_t a;
+	char	*p;
+	size_t	a;
 	
 	a = 0;
-	p = (void*)malloc(count * size); // 1 - '\0'
+	p = (char*)malloc(count * size); // 1 - '\0'
 	if (p == NULL)
 		return (NULL);
 	while ( a < count )
