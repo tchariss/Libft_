@@ -26,7 +26,7 @@ int					ft_atoi(const char *str)
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
-		sym = (str[i] == '-') ? -1 : 1);
+		sym = ((str[i] == '-') ? -1 : 1);
 		i++;
 	}
 	while (str[i] >= '0' && str[i] <= '9') // ft_isdigit(str[i])
