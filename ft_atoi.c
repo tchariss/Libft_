@@ -39,7 +39,7 @@ int					ft_atoi(const char *str)
 			return (-1);
 		return (0);
 	}
-	return (sym * res);
+	return (sym * res); // sym = "-"
 }
 
 // int main (void)
