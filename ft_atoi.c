@@ -12,32 +12,49 @@
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+int					ft_atoi(const char *str)
 {
-	size_t i = 0;
-	unsigned long res = 0;
-	int b = 1;
-	
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n' || str[i] == '\r' || str[i] == '\f' ||  str[i] == '\v')
-	i++;
+	size_t			i;
+	unsigned long	res;
+	int				sym;
+
+	i = 0;
+	res = 0;
+	sym = 1;
+	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n' ||
+	str[i] == '\r' || str[i] == '\f' || str[i] == '\v') // ft_isspace(str[i]) -> i++ 
+		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
-		b = (str[i] == '-' ? -1 : 1);
+		sym = (str[i] == '-') ? -1 : 1);
 		i++;
-		}
-		while (str[i] >= 48  && str[i] <= 57)
-		{
-			res = res * 10 + (str[i] - '0');
-			i++;
-		}
-		if (res > 9223372036854775807)
-		{
-			if (b == 1)
-				return(-1);
-			return(0);
-		}
-	return( b * res);
+	}
+	while (str[i] >= '0' && str[i] <= '9') // ft_isdigit(str[i])
+	{
+		res = 10 * res + (str[i++] - '0');
+	}
+	if (res > 9223372036854775807)
+	{
+		if (sym == 1)
+			return (-1);
+		return (0);
+	}
+	return (sym * res);
 }
+
+// int main (void)
+// {   
+//    char *str = "65255.23brrt"; //Строка для преобразования
+//    int num = 0;                //Переменная для записи результата
+   
+//    //Преобразование строки в число типа int
+//    num = ft_atoi (str);
+   
+//    printf ("%d\n", num);
+   
+//    return 0; 
+// } 
+
 /*
 ** str – указатель на строку, которую необходимо преобразовать в число
 */
